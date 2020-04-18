@@ -5,14 +5,16 @@
 }
 
 .slide-wrapper {
-    display: block;
-    transition: opacity 1s ease-in;
     position: absolute;
+
+    display: block;
     min-height: 100vh;
     max-height: 100vh;
     min-width: 100vw;
     max-width: 100vw;
     background-size: cover;
+
+    transition: opacity 1s ease-in;
 }
 
 .slide-image {
@@ -22,14 +24,18 @@
 .slide-text {
     position: absolute;
     bottom: 0;
+
     padding: 40px;
     background: rgba(0, 0, 0, 0.5);
+
     color: white;
+
     font-family: monospace;
 }
 
 .slide-text h2 {
     margin-bottom: 10px;
+
     font-size: 30px;
 }
 
@@ -47,26 +53,43 @@
 }
 
 .nav {
-    margin: 0 auto;
+    position: absolute;
+    z-index: 2;
+    top: calc(50% - 50px);
+
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
-    position: absolute;
-    top: calc(50% - 50px);
 }
 
 .nav-button {
     padding: 10px;
-    cursor: pointer;
-    font-size: 100px;
-    padding: 0;
     height: 100px;
+    background: none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none;
-    border: none;
+
     color: white;
+
+    font-size: 100px;
+
+    cursor: pointer;
     outline: none;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
 }

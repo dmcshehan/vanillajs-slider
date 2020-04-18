@@ -5,7 +5,7 @@ var imageWrapperList = document.querySelectorAll('#slider .slide-wrapper');
 
 function removeEl(element) {
     element.classList.add('visuallyHidden');
-    setTimeout(function() {
+    setTimeout(function () {
         element.classList.add('permanentlyHidden');
     }, 1000)
 }
@@ -13,7 +13,7 @@ function removeEl(element) {
 function bringEl(element) {
     element.classList.add('visuallyHidden');
     element.classList.remove('permanentlyHidden');
-    setTimeout(function() {
+    setTimeout(function () {
         element.classList.remove('visuallyHidden');
     }, 500)
 }
@@ -22,11 +22,11 @@ nextButton.addEventListener('click', function handleNextSlide() {
 
     for (let i = 0; i < imageWrapperList.length; i++) {
         if (!imageWrapperList[i].classList.contains('permanentlyHidden')) {
-            removeEl(imageWrapperList[i]);
+            imageWrapperList[i].classList.toggle('permanentlyHidden');
             if (i == imageWrapperList.length - 1) {
-                bringEl(imageWrapperList[0]);
+                imageWrapperList[0].classList.toggle('permanentlyHidden');
             } else {
-                bringEl(imageWrapperList[i + 1]);
+                imageWrapperList[i + 1].classList.toggle('permanentlyHidden');
             }
             return;
         }
@@ -34,14 +34,13 @@ nextButton.addEventListener('click', function handleNextSlide() {
 })
 
 prevButton.addEventListener('click', function handleNextSlide() {
-
     for (let i = 0; i < imageWrapperList.length; i++) {
         if (!imageWrapperList[i].classList.contains('permanentlyHidden')) {
-            removeEl(imageWrapperList[i]);
+            imageWrapperList[i].classList.toggle('permanentlyHidden');
             if (i == 0) {
-                bringEl(imageWrapperList[imageWrapperList.length - 1]);
+                imageWrapperList[imageWrapperList.length - 1].classList.toggle('permanentlyHidden');
             } else {
-                bringEl(imageWrapperList[i - 1]);
+                imageWrapperList[i - 1].classList.toggle('permanentlyHidden');
             }
             return;
         }
